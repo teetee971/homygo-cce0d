@@ -1,0 +1,27 @@
+{
+  "hosting": {
+    "public": "y",
+    "cleanUrls": true,
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
+    ],
+    "redirects": [
+      {
+        "source": "/",
+        "destination": "https://homygo.eu",
+        "type": 301
+      }
+      /*
+      Optionally, if you want to redirect *everything*:
+      ,{
+        "source": "/**",              
+        "destination": "https://homygo.eu",
+        "type": 301
+      }
+      */
+    ]
+  }
+}

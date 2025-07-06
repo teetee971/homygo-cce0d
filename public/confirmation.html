@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Confirmation | HomyGo</title>
+  <meta name="theme-color" content="#000000" />
+  <style>
+    body {
+      background-color: #121212;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      text-align: center;
+    }
+    .checkmark {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      display: block;
+      stroke-width: 2;
+      stroke: #00c8a0;
+      stroke-miterlimit: 10;
+      margin: 20px auto;
+      box-shadow: inset 0px 0px 0px #00c8a0;
+      animation: fill .4s ease-in-out .4s forwards, scale .3s ease-in-out .9s both;
+    }
+    .checkmark__circle {
+      stroke-dasharray: 166;
+      stroke-dashoffset: 166;
+      stroke-width: 2;
+      stroke-miterlimit: 10;
+      stroke: #00c8a0;
+      fill: none;
+      animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+    }
+    .checkmark__check {
+      transform-origin: 50% 50%;
+      stroke-dasharray: 48;
+      stroke-dashoffset: 48;
+      animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.6s forwards;
+    }
+    @keyframes stroke {
+      100% { stroke-dashoffset: 0; }
+    }
+    @keyframes scale {
+      0%, 100% { transform: none; }
+      50% { transform: scale(1.1); }
+    }
+    @keyframes fill {
+      100% { box-shadow: inset 0px 0px 0px 30px #00c8a0; }
+    }
+    .btn-retour {
+      margin-top: 30px;
+      padding: 10px 20px;
+      background-color: #00c8a0;
+      border-radius: 30px;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <svg class="checkmark" viewBox="0 0 52 52">
+    <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+    <path class="checkmark__check" fill="none" d="M14 27l7 7 16-16"/>
+  </svg>
+  <h2>Votre demande a bien été envoyée</h2>
+  <p>Nous vous contacterons dans les plus brefs délais.</p>
+  <a href="index.html" class="btn-retour">Retour à l'accueil</a>
+</body>
+</html>

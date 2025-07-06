@@ -1,19 +1,9 @@
-# HomyGo™ 🚀
+# HomyGo - Déploiement Firebase
 
-**Version finale vérifiée**
+## Étapes de déploiement (à exécuter dans Git Bash ou terminal) :
+1. `firebase login`
+2. `firebase init hosting`
+3. Sélectionne ton projet : `homygo-cce0d`
+4. `firebase deploy`
 
----
-
-## 📌 Description  
-HomyGo™ est une solution moderne de gestion locative saisonnière, de home sitting et de services connectés.  
-Elle intègre des modules avancés : **Voyage**, **Cashback**, **Marketplace**, **Blockchain** et bien plus encore pour offrir une expérience fiable et sécurisée.
-
----
-
-## ✅ Fonctionnalités principales  
-- 📍 **Location saisonnière intelligente**  
-- 🏠 **Home Sitting (garde à domicile)**  
-- ✈️ **Module Voyage & Bons Plans**  
-- 💸 **Cashback & Marketplace intégrés**  
-- 🔐 **Sécurité SSL & modules blockchain**  
-- 📦 **QR Codes officiels & scripts de maintenance**
+✅ Ton site sera immédiatement en ligne.

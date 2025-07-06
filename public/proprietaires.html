@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Espace Propriétaires – HomyGo</title>
+  <link rel="manifest" href="manifest.json" />
+  <style>
+    body { background-color: #121212; color: white; font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header, nav { background-color: #1f1f1f; padding: 1rem; text-align: center; }
+    nav a { color: #ccc; margin: 0 15px; text-decoration: none; }
+    nav a:hover { color: #fff; }
+    h1, h2 { color: #ffffff; text-align: center; }
+    .container { max-width: 960px; margin: auto; padding: 2rem; }
+    .section { background-color: #1e1e1e; padding: 1rem; margin-bottom: 2rem; border-radius: 8px; }
+    label { display: block; margin-top: 10px; }
+    input, textarea, select { width: 100%; padding: 0.5rem; margin-top: 5px; background-color: #2a2a2a; border: none; color: white; border-radius: 5px; }
+    button { margin-top: 1rem; padding: 0.7rem 1.2rem; background-color: #4caf50; border: none; color: white; border-radius: 5px; cursor: pointer; }
+    table { width: 100%; border-collapse: collapse; margin-top: 1rem; }
+    th, td { border: 1px solid #444; padding: 0.5rem; text-align: left; }
+    th { background-color: #333; }
+  </style>
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html">Accueil</a>
+      <a href="sejours.html">Séjours</a>
+      <a href="contact.html">Contact</a>
+      <a href="proprietaires.html"><strong>Propriétaires</strong></a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>Espace Propriétaires</h1>
+
+    <div class="section">
+      <h2>Ajouter un bien à louer</h2>
+      <form>
+        <label>Nom du bien</label>
+        <input type="text" placeholder="Appartement T2 avec vue mer" />
+        <label>Localisation</label>
+        <input type="text" placeholder="Pointe-à-Pitre, Guadeloupe" />
+        <label>Description</label>
+        <textarea placeholder="Décrivez votre bien..."></textarea>
+        <label>Prix par nuit (€)</label>
+        <input type="number" placeholder="Ex : 95" />
+        <label>Photos</label>
+        <input type="file" multiple />
+        <button type="submit">Publier</button>
+      </form>
+    </div>
+
+    <div class="section">
+      <h2>Calendrier de réservation</h2>
+      <p>Visualisez vos disponibilités :</p>
+      <input type="date" /> à <input type="date" />
+    </div>
+
+    <div class="section">
+      <h2>Services Home Setting</h2>
+      <table>
+        <tr><th>Service</th><th>Fournisseur</th><th>Tarif</th></tr>
+        <tr><td>Nettoyage complet</td><td>CleanPro</td><td>49€/intervention</td></tr>
+        <tr><td>Photographe Airbnb</td><td>ShootLocatif</td><td>89€/séance</td></tr>
+        <tr><td>Gestion des clés</td><td>KeySafe</td><td>29€/mois</td></tr>
+      </table>
+    </div>
+  </div>
+</body>
+</html>

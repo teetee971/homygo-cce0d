@@ -1,0 +1,19 @@
+.reserver-fixe {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #00c8a0;
+  color: #000;
+  padding: 12px 24px;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  box-shadow: 0 0 12px rgba(0, 200, 160, 0.4);
+  z-index: 999;
+}
+@media (min-width: 768px) {
+  .reserver-fixe {
+    display: none; /* Masqué sur desktop */
+  }
+}

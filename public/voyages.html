@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Séjours | HomyGo</title>
+  <meta name="theme-color" content="#000000" />
+  <link rel="manifest" href="/manifest.json" />
+  <link rel="stylesheet" href="fixed-reservation-button.css" />
+  <style>
+    body {
+      background-color: #121212;
+      color: white;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      margin-top: 60px;
+      text-align: center;
+    }
+    .top-nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: #121212;
+      border-bottom: 1px solid #333;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 12px 0;
+      z-index: 1000;
+    }
+    .top-nav a {
+      color: #00c8a0;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .top-nav a:hover {
+      color: #00b194;
+    }
+    .destination {
+      background: #1f1f1f;
+      margin: 30px auto;
+      padding: 20px;
+      max-width: 600px;
+      border-radius: 12px;
+      text-align: center;
+    }
+    .destination img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+    .destination h3 {
+      font-size: 1.4em;
+      margin: 10px 0;
+    }
+    .destination p {
+      color: #ccc;
+    }
+    .btn-decouvrir {
+      display: inline-block;
+      margin-top: 10px;
+      background: #00b894;
+      padding: 10px 18px;
+      border-radius: 30px;
+      text-decoration: none;
+      color: black;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-nav">
+    <a href="index.html">🏠 Accueil</a>
+    <a href="voyages.html">🌴 Séjours</a>
+    <a href="contact.html">📧 Contact</a>
+  </div>
+
+  <h1>🌴 Nos séjours disponibles</h1>
+
+  <div class="destination">
+    <img src="/images/sejour_tropical.jpg" alt="Séjour tropical">
+    <h3>Guadeloupe - 7 nuits</h3>
+    <p>À partir de 650€</p>
+    <a href="contact.html" class="btn-decouvrir">Découvrir</a>
+  </div>
+
+  <div class="destination">
+    <img src="/images/sejour_tropical.jpg" alt="Séjour tropical">
+    <h3>Martinique - 5 nuits</h3>
+    <p>À partir de 750€</p>
+    <a href="contact.html" class="btn-decouvrir">Découvrir</a>
+  </div>
+
+  <a href="contact.html" class="reserver-fixe">📲 Réserver maintenant</a>
+</body>
+</html>

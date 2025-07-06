@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://homygo-cce0d.web.app/sitemap.xml
