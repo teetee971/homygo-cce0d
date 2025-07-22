@@ -1,27 +1,36 @@
 {
   "hosting": {
-    "public": "y",
-    "cleanUrls": true,
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
     ],
     "redirects": [
       {
         "source": "/",
-        "destination": "https://homygo.eu",
+        "destination": "https://www.homygo.eu",
         "type": 301
       }
-      /*
-      Optionally, if you want to redirect *everything*:
-      ,{
-        "source": "/**",              
-        "destination": "https://homygo.eu",
-        "type": 301
+    ],
+    "headers": [
+      {
+        "source": "/**",
+        "headers": [
+          {
+            "key": "X-Content-Type-Options",
+            "value": "nosniff"
+          },
+          {
+            "key": "X-Frame-Options",
+            "value": "DENY"
+          },
+          {
+            "key": "Referrer-Policy",
+            "value": "strict-origin-when-cross-origin"
+          }
+        ]
       }
-      */
     ]
   }
 }

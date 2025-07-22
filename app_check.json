@@ -1,0 +1,7 @@
+
+{
+  "appCheck": {
+    "enforce": true,
+    "provider": "reCAPTCHA_V3"
+  }
+}
