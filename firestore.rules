@@ -1,9 +1,10 @@
-
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
+    // HomyGo is currently deployed as a static/PWA site in this repository.
+    // Keep Firestore closed until a documented per-user data model and tests exist.
     match /{document=**} {
-      allow read, write: if request.auth != null;
+      allow read, write: if false;
     }
   }
 }
