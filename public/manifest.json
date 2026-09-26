@@ -1,11 +1,14 @@
-
 {
+  "id": "/",
   "name": "HomyGo",
   "short_name": "HomyGo",
-  "start_url": ".",
+  "description": "Plateforme HomyGo de gestion locative et de séjours.",
+  "lang": "fr",
+  "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#111111",
-  "theme_color": "#0f0f0f",
+  "background_color": "#0d1117",
+  "theme_color": "#0d1117",
   "orientation": "portrait",
   "icons": [
     {

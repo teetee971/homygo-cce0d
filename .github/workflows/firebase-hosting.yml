@@ -1,0 +1,67 @@
+name: Deploy HomyGo to Firebase Hosting
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "public/**"
+      - "firebase.json"
+      - ".firebaserc"
+      - "scripts/validate_site.py"
+      - ".github/workflows/firebase-hosting.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: homygo-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    name: Validate and deploy production
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Validate before deployment
+        run: python scripts/validate_site.py
+
+      - name: Deploy to Firebase Hosting
+        shell: bash
+        env:
+          FIREBASE_SERVICE_ACCOUNT: ${{ secrets.FIREBASE_SERVICE_ACCOUNT }}
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          AUTH_ARGS=()
+          if [[ -n "${FIREBASE_SERVICE_ACCOUNT:-}" ]]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT" > "$RUNNER_TEMP/firebase-service-account.json"
+            export GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/firebase-service-account.json"
+          elif [[ -n "${FIREBASE_TOKEN:-}" ]]; then
+            AUTH_ARGS=(--token "$FIREBASE_TOKEN")
+          else
+            echo "::error::Configure FIREBASE_SERVICE_ACCOUNT (recommended) or FIREBASE_TOKEN in GitHub Actions secrets."
+            exit 1
+          fi
+
+          npx --yes firebase-tools@latest deploy \
+            --only hosting \
+            --project homygo-cce0d \
+            --non-interactive \
+            "${AUTH_ARGS[@]}"

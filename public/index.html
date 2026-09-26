@@ -1,95 +1,117 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>HomyGo - Arrive bientôt</title>
+  <meta name="theme-color" content="#0d1117">
+  <meta name="description" content="HomyGo, plateforme de gestion locative et de séjours.">
+  <title>HomyGo</title>
+  <link rel="manifest" href="/manifest.json">
+  <link rel="icon" href="/icons/icon-192.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: 'Inter', sans-serif;
-      background-color: #0d1117;
-      color: #f0f6fc;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       min-height: 100vh;
-      text-align: center;
-      padding: 2rem;
+      font-family: Inter, system-ui, sans-serif;
+      background: #0d1117;
+      color: #f0f6fc;
     }
-
-    img.logo {
-      width: 120px;
-      margin-bottom: 1.5rem;
+    .shell {
+      width: min(960px, calc(100% - 32px));
+      margin: 0 auto;
     }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      font-size: 1.1rem;
-      color: #c9d1d9;
-      max-width: 400px;
-    }
-
-    form {
-      margin-top: 2rem;
+    nav {
       display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      width: 100%;
-      max-width: 400px;
+      gap: 18px;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 20px 0;
     }
-
-    input[type="email"] {
-      padding: 0.75rem;
-      border: none;
-      border-radius: 6px;
-      font-size: 1rem;
-      background-color: #161b22;
-      color: #fff;
+    nav a { color: #c9d1d9; text-decoration: none; }
+    nav a:hover, nav a:focus-visible { color: #ffffff; }
+    main {
+      min-height: calc(100vh - 150px);
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 48px 0;
     }
-
-    button {
-      padding: 0.75rem;
-      border: none;
-      border-radius: 6px;
-      background-color: #238636;
-      color: white;
-      font-weight: 600;
-      font-size: 1rem;
-      cursor: pointer;
+    .hero { max-width: 680px; }
+    .logo {
+      width: min(220px, 60vw);
+      height: auto;
+      margin-bottom: 24px;
+      border-radius: 18px;
     }
-
-    button:hover {
-      background-color: #2ea043;
+    h1 {
+      font-size: clamp(2rem, 6vw, 3.8rem);
+      margin: 0 0 18px;
     }
-
-    .footer {
-      margin-top: 3rem;
-      font-size: 0.8rem;
+    p {
+      color: #c9d1d9;
+      font-size: 1.08rem;
+      line-height: 1.65;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      margin-top: 28px;
+    }
+    .button {
+      display: inline-block;
+      padding: 12px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      background: #238636;
+      color: #ffffff;
+    }
+    .button.secondary { background: #21262d; }
+    footer {
+      padding: 24px 0 32px;
+      text-align: center;
       color: #8b949e;
+      font-size: 0.86rem;
     }
   </style>
 </head>
 <body>
-  <img src="https://homygo.eu/logo-homygo-pro.png" alt="HomyGo Logo" class="logo">
+  <div class="shell">
+    <nav aria-label="Navigation principale">
+      <a href="/sejours.html">Séjours</a>
+      <a href="/proprietaires.html">Propriétaires</a>
+      <a href="/contact.html">Contact</a>
+    </nav>
 
-  <h1>HomyGo arrive très bientôt</h1>
-  <p>Inscrivez-vous pour être informé du lancement officiel de la plateforme de gestion locative moderne.</p>
+    <main>
+      <section class="hero">
+        <img src="/logo.png" alt="Logo HomyGo" class="logo">
+        <h1>Bienvenue sur HomyGo</h1>
+        <p>La plateforme HomyGo est en cours de finalisation. Les pages publiques de séjours, de contact et l’espace propriétaires restent accessibles pendant cette phase.</p>
+        <div class="actions">
+          <a class="button" href="/sejours.html">Découvrir les séjours</a>
+          <a class="button secondary" href="mailto:homygo.eucontact@gmail.com">Nous contacter</a>
+        </div>
+      </section>
+    </main>
 
-  <form action="https://docs.google.com/forms/d/e/1FAIpQLSdXXXXXXXXXXXXXXXXXXXXXXX/formResponse" method="POST" target="_blank">
-    <input type="email" name="entry.1234567890" placeholder="Votre adresse e-mail" required>
-    <button type="submit">Prévenez-moi</button>
-  </form>
+    <footer>© 2026 HomyGo — Tous droits réservés.</footer>
+  </div>
 
-  <div class="footer">© 2025 HomyGo - Tous droits réservés</div>
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("/service-worker.js").catch((error) => {
+          console.error("Service Worker non enregistré :", error);
+        });
+      });
+    }
+  </script>
 </body>
 </html>
-<- import { Card } from '@/components/ui/card' 🚀 trigger test auto-deploy Firebase -->

@@ -1,0 +1,50 @@
+name: HomyGo CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  merge_group:
+    types: [checks_requested]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: homygo-ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    name: Validate site and configuration
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      - name: Validate HomyGo static site
+        run: python scripts/validate_site.py
+
+      - name: Check JavaScript syntax
+        run: |
+          node --check app.js
+          node --check flux.js
+          node --check functions_index.js
+          node --check public/service-worker.js
+
+      - name: Check Firebase CLI availability
+        run: npx --yes firebase-tools@latest --version
